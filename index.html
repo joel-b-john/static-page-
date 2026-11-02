@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Wedding Invitation | Vipin &amp; Bijini</title>
+  <meta name="description" content="You are cordially invited to celebrate the wedding of Vipin &amp; Bijini on December 28 &amp; 29.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+  <!-- Google Fonts for Regal Wedding Aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Canvas for Falling Rose Petals and Golden Bokeh Sparkles -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <main class="page-container">
+    
+    <!-- Hero Section with Envelope & Cards -->
+    <section class="invitation-hero">
+      <div class="ornament-header">
+        <div class="flourish-line left"></div>
+        <div class="flourish-badge">✦ &nbsp; WEDDING INVITATION &nbsp; ✦</div>
+        <div class="flourish-line right"></div>
+      </div>
+
+      <h1 class="couple-names">Vipin <span class="amp">&amp;</span> Bijini</h1>
+      <p class="subtitle">Cordially request the pleasure of your company</p>
+
+      <!-- Interactive Envelope & Cards Showcase -->
+      <div class="showcase-wrapper" id="showcaseWrapper">
+        
+        <!-- STAGE 1: CLOSED ENVELOPE -->
+        <div class="envelope-card-container closed-state" id="envelopeClosedContainer">
+          <div class="image-wrapper envelope-sealed" id="sealedEnvelopeTrigger">
+            <!-- Base closed envelope graphic -->
+            <img 
+              id="imgClosedEnvelope" 
+              src="images/envelope_closed.png" 
+              alt="Sealed Burgundy Wedding Envelope with Gold Wax Seal" 
+              class="invitation-img base-closed-img"
+              loading="eager"
+            />
+
+            <!-- 3D Realistic Folding Flap Layer -->
+            <div class="envelope-flap-3d" id="envelopeFlap3D">
+              <!-- Front Face: Closed flap pointing down -->
+              <div class="flap-face flap-front">
+                <img src="images/envelope_closed.png" alt="" class="invitation-img" />
+              </div>
+              <!-- Back Face: Inner gold-lined burgundy lining revealed when folded up -->
+              <div class="flap-face flap-back">
+                <div class="flap-back-inner">
+                  <div class="inner-foil-pattern"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Wax Seal Pulsing Interactive Hotspot -->
+            <div class="wax-seal-hotspot" id="waxSealHotspot">
+              <div class="pulse-ring ring-1"></div>
+              <div class="pulse-ring ring-2"></div>
+              <div class="wax-seal-indicator">
+                <span class="seal-icon">✦</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 2 & 3: OPENED ENVELOPE & CARDS CAROUSEL -->
+        <div class="envelope-card-container open-state hidden" id="envelopeOpenContainer">
+          
+          <!-- Card Switcher Tabs -->
+          <div class="card-tabs">
+            <button class="card-tab active" id="tabInvitation" data-index="0">
+              <span class="tab-dot"></span>
+              The Invitation
+            </button>
+            <button class="card-tab" id="tabCelebrations" data-index="1">
+              <span class="tab-dot"></span>
+              Our Celebrations
+            </button>
+          </div>
+
+          <!-- 3D Flippable / Sliding Cards Deck -->
+          <div class="cards-viewport" id="cardsViewport">
+            
+            <!-- Slide 1: Envelope with Invitation Card Emerging -->
+            <div class="card-slide active" id="slide0">
+              <div class="card-frame tiltable" data-tilt>
+                <img 
+                  id="imgOpenEnvelope" 
+                  src="images/envelope_open.png" 
+                  alt="Wedding Invitation Card of Vipin and Bijini" 
+                  class="invitation-img"
+                />
+                <div class="card-glass-shine"></div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Detailed Celebrations Page (Tucked Behind) -->
+            <div class="card-slide behind" id="slide1">
+              <div class="card-frame tiltable" data-tilt>
+                <img 
+                  id="imgCelebrations" 
+                  src="images/card_celebrations.png" 
+                  alt="Our Celebrations - Guruvayoor Temple &amp; Reception Details" 
+                  class="invitation-img"
+                />
+                
+                <!-- Interactive Clickable Location Hotspots -->
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Guruvayoor+Temple+Kerala" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="card-hotspot wedding-loc-hotspot"
+                ></a>
+                
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Al+Saj+Amaranta+Trivandrum" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="card-hotspot reception-loc-hotspot"
+                ></a>
+
+                <div class="card-glass-shine"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-nav">
+            <button class="nav-arrow prev" id="prevCardBtn" aria-label="Previous Card">
+              <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <div class="nav-indicator">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+            </div>
+
+            <button class="nav-arrow next" id="nextCardBtn" aria-label="Next Card">
+              <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <!-- Action Bar for Current Card -->
+          <div class="card-action-bar">
+            <button class="luxury-btn primary" id="reSealBtn">
+              <span>✉️</span> Close Envelope
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
