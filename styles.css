@@ -694,37 +694,38 @@ body {
   100% { transform: translateY(120%) rotate(25deg); }
 }
 
-/* Location Hotspots on Celebrations Card */
+/* Location Hotspots on Celebrations Card (overlaying pre-rendered pill buttons) */
 .card-hotspot {
   position: absolute;
-  border-radius: 9999px;
+  display: block;
   cursor: pointer;
   z-index: 15;
-  transition: var(--transition-smooth);
-  background: rgba(212, 175, 55, 0);
-  border: 1.5px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  background: transparent !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 9999px !important;
 }
 
 .wedding-loc-hotspot {
-  top: 40.0%;
-  left: 15.5%;
-  width: 34.0%;
-  height: 3.6%;
-  border-radius: 6px;
+  top: 36.4% !important;
+  left: 14.0% !important;
+  width: 39.5% !important;
+  height: 4.8% !important;
 }
 
 .reception-loc-hotspot {
-  top: 71.5%;
-  left: 45.0%;
-  width: 35.0%;
-  height: 7.2%;
-  border-radius: 8px;
+  top: 68.8% !important;
+  left: 47.5% !important;
+  width: 39.5% !important;
+  height: 6.8% !important;
 }
 
-.card-hotspot:hover {
-  background: rgba(212, 175, 55, 0.16);
-  border-color: rgba(212, 175, 55, 0.9);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.7);
+.card-hotspot:hover,
+.card-hotspot:active,
+.card-hotspot:focus-visible {
+  border-color: rgba(212, 175, 55, 0.95) !important;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.4) !important;
+  transform: scale(1.025);
 }
 
 

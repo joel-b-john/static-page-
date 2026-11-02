@@ -14,7 +14,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <style>
+    /* Clickable location hotspots overlaying pre-rendered pill buttons on Card 3 */
+    .card-hotspot {
+      position: absolute !important;
+      display: block !important;
+      cursor: pointer !important;
+      z-index: 15 !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+      background: transparent !important;
+      border: 1.5px solid transparent !important;
+      border-radius: 9999px !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .wedding-loc-hotspot {
+      top: 36.4% !important;
+      left: 14.0% !important;
+      width: 39.5% !important;
+      height: 4.8% !important;
+    }
+    .reception-loc-hotspot {
+      top: 68.8% !important;
+      left: 47.5% !important;
+      width: 39.5% !important;
+      height: 6.8% !important;
+    }
+    .card-hotspot:hover,
+    .card-hotspot:active,
+    .card-hotspot:focus-visible {
+      border-color: rgba(212, 175, 55, 0.95) !important;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.4) !important;
+      transform: scale(1.025);
+    }
+  </style>
 </head>
 <body>
   <!-- Canvas for Falling Rose Petals and Golden Bokeh Sparkles -->
@@ -42,7 +76,7 @@
             <!-- Base closed envelope graphic -->
             <img 
               id="imgClosedEnvelope" 
-              src="images/envelope_closed.png" 
+              src="images/envelope_closed.png?v=3" 
               alt="Sealed Burgundy Wedding Envelope with Gold Wax Seal" 
               class="invitation-img base-closed-img"
               loading="eager"
@@ -52,7 +86,7 @@
             <div class="envelope-flap-3d" id="envelopeFlap3D">
               <!-- Front Face: Closed flap pointing down -->
               <div class="flap-face flap-front">
-                <img src="images/envelope_closed.png" alt="" class="invitation-img" />
+                <img src="images/envelope_closed.png?v=3" alt="" class="invitation-img" />
               </div>
               <!-- Back Face: Inner gold-lined burgundy lining revealed when folded up -->
               <div class="flap-face flap-back">
@@ -96,7 +130,7 @@
               <div class="card-frame tiltable" data-tilt>
                 <img 
                   id="imgOpenEnvelope" 
-                  src="images/envelope_open.png" 
+                  src="images/envelope_open.png?v=3" 
                   alt="Wedding Invitation Card of Vipin and Bijini" 
                   class="invitation-img"
                 />
@@ -109,7 +143,7 @@
               <div class="card-frame tiltable" data-tilt>
                 <img 
                   id="imgCelebrations" 
-                  src="images/card_celebrations.png" 
+                  src="images/card_celebrations.png?v=3" 
                   alt="Our Celebrations - Guruvayoor Temple &amp; Reception Details" 
                   class="invitation-img"
                 />
@@ -120,6 +154,7 @@
                   target="_blank" 
                   rel="noopener noreferrer" 
                   class="card-hotspot wedding-loc-hotspot"
+                  aria-label="Open Guruvayoor Temple location on Google Maps"
                 ></a>
                 
                 <a 
@@ -127,6 +162,7 @@
                   target="_blank" 
                   rel="noopener noreferrer" 
                   class="card-hotspot reception-loc-hotspot"
+                  aria-label="Open Al Saj Amaranta, Trivandrum location on Google Maps"
                 ></a>
 
                 <div class="card-glass-shine"></div>
